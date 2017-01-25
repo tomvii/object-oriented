@@ -1,46 +1,45 @@
 #include<stdio.h>
 int main()
 {
-	int a,b,c,d,e,u,i,j,w=0,l[10]={0};
-	i=1;
+	int a,b,sum,d,e,u,digit,j,w=0,l[10]={0};
+	digit=1;
 	scanf("%d%d",&a,&b);
-	c=a+b;
-	if(c<0)
+	sum=a+b;
+	if(sum<0)
 	{
-		c=-c;
+		sum=-sum;
 		printf("-");
 	}
-	d=c;
+	d=sum;
 	while(d>0)
 	{
 		d=d/10;
-		i=i+1;
+		digit=digit+1;
 	}
-	i=i-1;
-	if(c==0)
-		i=i+1;
-	for(j=0;j<i;j++)
+	digit=digit-1;
+	if(sum==0)
+		digit=digit+1;
+	for(j=0;j<digit;j++)
 	{
-		e=c%10;
-		l[i-j]=e;
-		c=c/10;
+		e=sum%10;
+		l[digit-j]=e;
+		sum=sum/10;
 	}
-	u=i%3;
+	u=digit%3;
 	for(j=1;j<=u;j++)
 		printf("%d",l[j]);
-	if(i==3)
+	if(digit==3)
 	{
 		for(j=1;j<=3;j++)
-			printf("%d",l[j]);   //漏掉的3位数情况！！！
+			printf("%d",l[j]);    //3 digits
 	}
-	while(i>3&&u<i)
+	while(digit>3&&u<digit)
 	{
 		if(u!=0)
 			printf(",");
-		for(j=1;j<=3;j++)
+		for(j=1;j<=3;j++)       
 			printf("%d",l[u+j]);
 		u=u+3;
 	}
-
 	return 0;
 }
