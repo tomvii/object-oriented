@@ -2,7 +2,7 @@
 void writefile(char str[20])
 {
 	FILE *out;
-	if ((out = fopen(str1, "a")) == NULL)
+	if ((out = fopen(p2, "a")) == NULL)
 	{
 		cout << "Can not write it!!!";
 		exit(0);
@@ -60,14 +60,12 @@ void random(int *a,int*b,int*c,int *d )
 	*c = 10 * rand() / RAND_MAX;
 	*d = 10 * rand() / RAND_MAX;
 }
-int fileread()
+int fileread(char *p1)
 {
 	FILE *in;
 	char c[50] = { 0 };
 	char ch[2]{ 0 };
-	cin >> c;
-	cout << c << endl;
-	if ((in = fopen(c, "r")) == NULL)
+	if ((in = fopen(p1, "r")) == NULL)
 	{
 		cout << "Can not open it!!!";
 		exit(0);
